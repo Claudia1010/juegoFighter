@@ -20,12 +20,12 @@ class Fighter {
         this.resistencia = resistencia;
         this.fuerza = fuerza;
         this.vida = 100;
-        this.random = functions.random(1,20);
+        this.random = functions.random(1,10);
     }
 
     ataque() {
         this.vida -= this.random;
-        this.random=functions.random(1,20);
+        this.random=functions.random(1,10);
     }
 };
 
