@@ -16,6 +16,9 @@
     <!--Pantalla 1. Logo intro del juego-->
     <div id="pantalla1" class="pantalla">
         <div class="diseno1"><img src="img/inicio.png" onclick="screenSwitch(2)"></div>
+        <div class="button">
+            <button class="jugar" type="button" onclick="screenSwitch(2)">JUGAR</button>
+        </div>
     </div>
     <!--Pantalla 2. Selección personaje-->
     <div id="pantalla2" class="pantalla" style="display:none">
@@ -61,18 +64,20 @@
     </div>
     <!--Pantalla3. Fight-->
     <div id="pantalla3" class="pantalla" style="display:none">
-        <div class="diseno3" id="pokes">
+        <div class="diseno3">
             <div class="center">
                 <div class="left">
                     <div class="fighter1" id="imagenJugador1"></div>
                     <div id="stats1" class="life1"></div>
+                    <div class="vida1" id="vida1">0</div>
                 </div>
                 <div class="mid">
-                    <div class="button"><img class="fightLogo" src="img/start.png" alt="fight" onclick="pelear()"></div>
+                    <button type="button" onclick="pelear()">START!</button>
                 </div>
                 <div class="right">
                     <div class="fighter2" id="imagenJugador2"></div>
                     <div id="stats2" class="life2"></div>
+                    <div class="vida2" id="vida2">0</div>
                 </div>
             </div>
         </div>

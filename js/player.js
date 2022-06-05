@@ -3,17 +3,17 @@
 
 //Selección de personajes
 
-let seleccion = (jugador) => {
-    if (grupo1 == "") {
-      grupo1 = arrayJugadores[jugador];//diccionario
-      let seleccionado = document.getElementById(jugador);
-      let dataSeleccionado = document.getElementById("data" + 1);
-      seleccionado.onclick = ""; //Bloqueo personaje
+let seleccion = (jugador) => {//jugador nro de 1 a 4
+    if (grupo1 == "") {//grupo 1 y 2 se inicializan vacios
+      grupo1 = arrayJugadores[jugador];// a traves de diccionario, seleccionara el personaje y lo guarda en grupo1
+      let seleccionado = document.getElementById(jugador);//id tambien toman valores de 1 a 4 = q jugador
+      let dataSeleccionado = document.getElementById("data1");//para que luego aparezca en pantalla 2 el nombre del personaje seleccionaje
+      seleccionado.onclick = ""; //Bloqueo personaje, desactivando el onclick del id que coincida con el personaje seleccionado
       dataSeleccionado.innerHTML = `${grupo1.nombre}`;
     } else if (grupo2 == "") {
       grupo2 = arrayJugadores[jugador];
       let seleccionado = document.getElementById(jugador);
-      let dataSeleccionado = document.getElementById("data" + 2);
+      let dataSeleccionado = document.getElementById("data2");
       seleccionado.onclick = ""; //bloqueo personaje
       dataSeleccionado.innerHTML = `${grupo2.nombre}`;
   
@@ -57,6 +57,9 @@ let seleccion = (jugador) => {
   let nivelVida1 = document.getElementById("stats1");
   let nivelVida2 = document.getElementById("stats2");
   
+  let cantidadVida1 = document.getElementById("vida1");
+  let cantidadVida2 = document.getElementById("vida2");
+
   let winner = document.getElementById("winner");
   
   const pantallaJuego = () => {
@@ -65,6 +68,7 @@ let seleccion = (jugador) => {
   
     nivelVida1.innerHTML = `<div class="lifeBar"><div id="lifeBar1"></div>`;
     nivelVida2.innerHTML = `<div class="lifeBar"><div id="lifeBar2"></div>`;
+
   };
   
   //Funcion pelea
@@ -76,14 +80,15 @@ let seleccion = (jugador) => {
     if (grupo1.vida <= 0) {
       screenSwitch(4);
   
-      winner.innerHTML = `<img class="winner" src="img/final.jpg" alt="winner" > </br> The winner is Player 2 with ${grupo2.nombre}`;
+      winner.innerHTML = `<img class="winner" src="img/final.jpg" alt="winner" > </br> The winner is Player 2 with ${grupo2.nombre}!`;
     }
     if (grupo2.vida <= 0) {
         screenSwitch(4);
   
-      winner.innerHTML = `<img class="winner" src="img/final.jpg" alt="winner" > </br> The winner is Player 1 with ${grupo1.nombre}`;
+      winner.innerHTML = `<img class="winner" src="img/final.jpg" alt="winner" > </br> The winner is Player 1 with ${grupo1.nombre}!`;
     }
-  
+    cantidadVida1.innerHTML = `${grupo1.vida}`;
+    cantidadVida2.innerHTML = `${grupo2.vida}`;
     nivelVida1.innerHTML = `<div class="lifeBar"><div id="lifeBar1"></div>`;
     nivelVida2.innerHTML = `<div class="lifeBar"><div id="lifeBar2"></div>`;
     document.getElementById("lifeBar1").style.width = `${grupo1.vida}` + "%";
